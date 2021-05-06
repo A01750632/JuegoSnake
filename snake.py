@@ -8,7 +8,9 @@ Exercises
 4. Change the snake to respond to arrow keys.
 
 """
-
+#Código modificado
+#Autor: Daniela Avila Luna
+#Autor: Liam Garay Monroy
 
 from turtle import *
 from random import randrange,sample
