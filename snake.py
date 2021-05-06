@@ -8,7 +8,9 @@ Exercises
 4. Change the snake to respond to arrow keys.
 
 """
-
+#Código modificado
+#Autor: Daniela Avila Luna
+#Autor: Liam Garay Monroy
 
 from turtle import *
 from random import randrange, sample, choice
@@ -19,12 +21,33 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 
 def change(x, y):
+    """Cambia la dirección de la serpiente dependiendo de las coordenadas
+
+    Args:
+        x ([int]): [dirección que tomara la serpiente en x]
+        y ([int]): [dirección que tomara la serpiente en y]
+    """
     aim.x = x
     aim.y = y
 
+
 def inside(head):
-    "Return True if head inside boundaries."
+    """Recibe un vector y regresa un bool dependiendo de si esta en el rango
+
+    Args:
+        head ([vector]): [coordenadas]
+
+    Returns:
+        [bool]: [Regresa si true si el ambas partes de el vector 
+        correspondientes]
+    """
     return -200 < head.x < 190 and -200 < head.y < 190
+
+
+colors = sample(["black","green","yellow","purple","blue"],2)
+serpiente = colors[0]
+comida = colors[1]
+
 
 def move():
     """Cambia la dirección de la cabeza de la serpiente
@@ -55,18 +78,18 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, serpiente)
 
     food.move(vector(choice([-10,0,10]), choice([-10,0,10])))
 
     if not inside(food):        #Si la comida llega a los bordes de la ventana
         food.x , food.y = 0, 0  #Manda la comida al centro de la ventana.
 
-    square(food.x, food.y, 9, 'green')  # Pinta la nueva posición de la comida
+    square(food.x, food.y, 9, comida)   # Pinta la nueva posición de la comida
     update()
     ontimer(move, 100)
 
-# Instrucciones que configuran la ventana
+
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
