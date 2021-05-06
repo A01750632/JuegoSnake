@@ -32,10 +32,10 @@ def change(x, y):
 
 
 def inside(head):
-    """[summary]
+    """Recibe un vector y regresa un bool dependiendo de si esta en el rango
 
     Args:
-        head ([vector]): [description]
+        head ([vector]): [coordenadas]
 
     Returns:
         [bool]: [Regresa si true si el ambas partes de el vector 
