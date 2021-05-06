@@ -21,20 +21,36 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 
 def change(x, y):
-    "Change snake direction."
+    """Cambia la dirección de la serpiente dependiendo de las coordenadas
+
+    Args:
+        x ([int]): [dirección que tomara la serpiente en x]
+        y ([int]): [dirección que tomara la serpiente en y]
+    """
     aim.x = x
     aim.y = y
 
+
 def inside(head):
-    "Return True if head inside boundaries."
+    """[summary]
+
+    Args:
+        head ([vector]): [description]
+
+    Returns:
+        [bool]: [Regresa si true si el ambas partes de el vector 
+        correspondientes]
+    """
     return -200 < head.x < 190 and -200 < head.y < 190
+
 
 colors = sample(["black","green","yellow","purple","blue"],2)
 serpiente = colors[0]
 comida = colors[1]
 
+
 def move():
-    "Move snake forward one segment."
+    """Move snake forward one segment."""
     head = snake[-1].copy()
     head.move(aim)
 
@@ -60,6 +76,7 @@ def move():
     square(food.x, food.y, 9, comida)
     update()
     ontimer(move, 100)
+
 
 setup(420, 420, 370, 0)
 hideturtle()
