@@ -8,9 +8,9 @@ Exercises
 4. Change the snake to respond to arrow keys.
 
 """
-#Código modificado
-#Autor: Daniela Avila Luna
-#Autor: Liam Garay Monroy
+# Código modificado
+# Autor: Daniela Avila Luna
+# Autor: Liam Garay Monroy
 
 from turtle import *
 from random import randrange, sample, choice
@@ -19,6 +19,7 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+
 
 def change(x, y):
     """Cambia la dirección de la serpiente dependiendo de las coordenadas
@@ -38,13 +39,13 @@ def inside(head):
         head ([vector]): [coordenadas]
 
     Returns:
-        [bool]: [Regresa si true si el ambas partes de el vector 
+        [bool]: [Regresa si true si el ambas partes de el vector
         correspondientes]
     """
     return -200 < head.x < 190 and -200 < head.y < 190
 
 
-colors = sample(["black","green","yellow","purple","blue"],2)
+colors = sample(["black", "green", "yellow", "purple", "blue"], 2)
 serpiente = colors[0]
 comida = colors[1]
 
@@ -55,7 +56,7 @@ def move():
     entonces será el fin del juego.
     Cuando las coordenadas de la cabeza y la de la comida coincidan,
     se incrementará el score del jugador y crecerá la lista del cuerpo.
-    La comida se mueve constantemente de manera aleatoria sin 
+    La comida se mueve constantemente de manera aleatoria sin
     salirse del borde.
     """
     head = snake[-1].copy()
@@ -80,10 +81,10 @@ def move():
     for body in snake:
         square(body.x, body.y, 9, serpiente)
 
-    food.move(vector(choice([-10,0,10]), choice([-10,0,10])))
+    food.move(vector(choice([-10, 0, 10]), choice([-10, 0, 10])))
 
-    if not inside(food):        #Si la comida llega a los bordes de la ventana
-        food.x , food.y = 0, 0  #Manda la comida al centro de la ventana.
+    if not inside(food):        # Si la comida llega a los bordes de la ventana
+        food.x, food.y = 0, 0  # Manda la comida al centro de la ventana.
 
     square(food.x, food.y, 9, comida)   # Pinta la nueva posición de la comida
     update()
